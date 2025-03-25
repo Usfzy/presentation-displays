@@ -147,6 +147,28 @@ class Display {
   /// @return The display's name.
   String? name;
 
-  Display(
-      {required this.displayId, this.flag, required this.name, this.rotation});
+  Display({
+    required this.displayId,
+    this.flag,
+    required this.name,
+    this.rotation,
+  });
+
+  factory Display.fromJson(Map<String, dynamic> json) {
+    return Display(
+      displayId: json['display_id'],
+      name: json['name'],
+      flag: json['flag'],
+      rotation: json['rotation'],
+    );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'display_id': displayId,
+      'name': name,
+      'flag': flag,
+      'rotation': rotation,
+    };
+  }
 }
