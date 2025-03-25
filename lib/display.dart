@@ -1,3 +1,4 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 Display displayFromJson(Map<String, dynamic> json) => Display(
     displayId: json['displayId'],
     flag: json['flags'],
@@ -170,5 +171,24 @@ class Display {
       'flag': flag,
       'rotation': rotation,
     };
+  }
+
+  @override
+  bool operator ==(covariant Display other) {
+    if (identical(this, other)) return true;
+  
+    return 
+      other.displayId == displayId &&
+      other.flag == flag &&
+      other.rotation == rotation &&
+      other.name == name;
+  }
+
+  @override
+  int get hashCode {
+    return displayId.hashCode ^
+      flag.hashCode ^
+      rotation.hashCode ^
+      name.hashCode;
   }
 }
